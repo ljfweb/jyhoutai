@@ -5,8 +5,12 @@
 </template>
 <script>
 export default {
-  name: "app"
-};
+  name: 'app',
+}
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+.box {
+  color: blue;
+}
+</style>
