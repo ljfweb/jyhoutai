@@ -1,0 +1,37 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "442140",
+      "name": "京东",
+      "font_class": "jingdong",
+      "unicode": "e812",
+      "unicode_decimal": 59410
+    },
+    {
+      "icon_id": "551844",
+      "name": "竖线",
+      "font_class": "vertical_line",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "798101",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e643",
+      "unicode_decimal": 58947
+    },
+    {
+      "icon_id": "12097374",
+      "name": "菜单",
+      "font_class": "caidan",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    }
+  ]
+}

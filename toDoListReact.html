@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+    <script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+    <!-- 生产环境中不建议使用 -->
+    <script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+    <!-- 设置必传数据模式及其格式 propTypes-->
+    <script src="https://unpkg.com/prop-types@15.6/prop-types.js"></script>
+    <script type="text/babel">
+        // 创建虚拟dom
+        class App extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    todoList: [
+                        { thing: '吃饭', tips: '未完成' },
+                        { thing: '睡觉', tips: '未完成' },
+                        { thing: '打游戏', tips: '未完成' }
+                    ]
+                }
+                this.handleAdd = this.handleAdd.bind(this)
+                this.handle_doMode = this.handle_doMode.bind(this)
+                this.handle_Delete = this.handle_Delete.bind(this)
+                this.renderShowListDate = this.renderShowListDate.bind(this)
+            }
+            handleAdd(todo) {//自定义数组方法
+                const { todoList } = this.state
+                todoList.unshift(todo)
+                this.setState({
+                    todoList
+                })
+            }
+            handle_doMode(mindex) {//判断是否完成
+                console.log(mindex)
+                const { todoList } = this.state
+                console.log(todoList[mindex])
+                if (todoList[mindex].tips == '完成') {//兑状态判断
+                    todoList[mindex].tips = '未完成'
+                    todoList[mindex].line = ''
+                } else {
+                    todoList[mindex].tips = '完成'
+                    todoList[mindex].line = 'line-through'
+                }
+                this.setState({
+                    todoList
+                })
+            }
+            handle_Delete(delindex) {//删除方法,对指定删除
+                console.log(delindex)
+                const { todoList } = this.state
+                todoList.splice(delindex, 1)
+                this.setState({
+                    todoList
+                })
+            }
+            renderShowListDate(opt) {//指定数据渲染
+                const { todoList } = this.state
+                console.log(opt)
+                const handleDate = []
+                if (opt != '全部') {//判断逻辑指定的数据显示
+                    todoList.map((item, index) => {
+                        if (item.tips == opt) {
+                            handleDate.push(item)
+                        }
+                    })
+                    console.log(handleDate)
+                } else {
+                    todoList.map((item) => {
+                        handleDate.push(item)
+                    })
+                }
+                /*目前BOG就是没执行一次数据就会减少**/
+                this.setState({
+                    todoList: handleDate
+                })
+            }
+            render() {
+                const { todoList } = this.state
+                return (
+                    <div>
+                        <h1>My Todo With React</h1>
+                        <Add count={todoList.length} handleAdd={this.handleAdd} />
+                        <List todoList={todoList} handle_Delete={this.handle_Delete} handle_doMode={this.handle_doMode} />
+                        <Mode renderShowListDate={this.renderShowListDate} />
+                    </div>
+                )
+            }
+        }
+        class Add extends React.Component {
+            constructor(props) {
+                super(props)
+                this.addFunction = this.addFunction.bind(this)
+            }
+            addFunction() {//添加方法
+                const todoDate = this.inputVal.value
+                if (!todoDate) {
+                    return alert('请输入！')
+                }
+                this.props.handleAdd({ thing: todoDate, tips: "未完成" })
+                //随后清空输入框
+                this.inputVal.value = ""
+            }
+            render() {
+                return (
+                    <div>
+                        <input type="text" ref={item => { return this.inputVal = item }} />&nbsp;&nbsp;
+                        <button onClick={this.addFunction}>添加 第{this.props.count + 1}个</button>
+                    </div>
+                )
+            }
+        }
+        Add.propTypes = {
+            count: PropTypes.number.isRequired,
+            handleAdd: PropTypes.func.isRequired
+        }
+        class List extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            deleteFn(index) {
+                this.props.handle_Delete(index)//将数组下标传入app
+            }
+            handle_mode(modeindex) {//处理完成和没有完成
+                this.props.handle_doMode(modeindex)//将数组下标传入app
+            }
+            render() {
+                return (
+                    <ul>
+                        {
+                            this.props.todoList.map((element, index) => {//删除线判断
+                                return <li key={index} onClick={this.handle_mode.bind(this, index)} style={{ 'text-decoration': element.line }}>{element.thing}-----{element.tips}-----<button onClick={this.deleteFn.bind(this, index)}>删除</button></li>
+                            })
+                        }
+                    </ul>
+                )
+            }
+        }
+        List.propTypes = {
+            todoList: PropTypes.array.isRequired,
+            handle_Delete: PropTypes.func.isRequired,
+            handle_doMode: PropTypes.func.isRequired
+        }
+        class Mode extends React.Component {
+            constructor(props) {
+                super(props)
+            }
+            renderList(option) {//指定渲染列表
+                this.props.renderShowListDate(option)//指定渲染到app
+            }
+            render() {
+                return (
+                    <div>
+                        <button onClick={this.renderList.bind(this, '全部')}>全部</button>&nbsp;&nbsp;
+                        <button onClick={this.renderList.bind(this, '未完成')}>未完成</button>&nbsp;&nbsp;
+                        <button onClick={this.renderList.bind(this, '完成')}>完成</button>
+                    </div>
+                )
+            }
+        }
+        Mode.prototypes = {
+            renderShowListDate: PropTypes.func.isRequired
+        }
+        // 渲染虚拟dom
+        ReactDOM.render(<App />, document.getElementById('box'))
+    </script>
+</body>
+
+</html>
