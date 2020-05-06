@@ -1,0 +1,331 @@
+// 脚部标签导航
+.tabbar .tab-container {
+  .van-tabbar-item__icon {
+    height: 49px;
+    .van-icon {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .van-info {
+      top: 16%;
+      right: 32%;
+    }
+  }
+}
+
+//头部导航栏设置样式
+.headerbar {
+  .van-nav-bar__left {
+    .van-icon {
+      font-size: 28px;
+      color: white;
+      left: -5px;
+    }
+  }
+  .van-nav-bar__title {
+    max-width: 273px;
+
+    .van-search {
+      // width: 273px;
+      // height: 30px;
+      padding: 7px 0;
+
+      .van-search__content {
+        // width: 100%;
+        height: 30px;
+        padding: 0;
+
+        .van-search__label {
+          // width: 20px;
+          // height: 15px;
+          margin: -1px 0 0 6px;
+
+          i {
+            font-size: 30px;
+            color: #e43130;
+          }
+        }
+
+        .van-cell {
+          padding-top: 0;
+          padding-bottom: 0;
+
+          .van-field__left-icon {
+            margin: 5px 0 0 6px;
+
+            i {
+              font-size: 18px;
+              color: rgb(102, 102, 102);
+            }
+          }
+
+          .van-cell__value {
+            .van-field__body {
+              .van-field__control {
+                font-size: 12px;
+                color: #232326;
+                padding-left: 5px;
+                width: 19em;
+                box-sizing: border-box;
+                -webkit-box-flex: 1;
+                height: auto;
+                margin: 0 0 0 5px;
+                vertical-align: middle;
+                width: 100%;
+                line-height: 30px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .van-nav-bar__right {
+    font-size: 16px;
+    right: 9px;
+    span {
+      color: white;
+    }
+  }
+}
+
+//轮播图
+.swiper {
+  .my-swipe,
+  .van-swipe-item,
+  .van-image,
+  .van-image__img {
+    width: 350px;
+    height: 140px;
+    border-radius: 7px;
+    margin: 0 auto;
+  }
+}
+
+// 九宫格
+.home {
+  .fenleiSlider {
+    .van-swipe__indicators {
+      bottom: 5px;
+
+      .van-swipe__indicator--active {
+        width: 10px;
+        height: 5px;
+        border-radius: 3px;
+        opacity: 0.7;
+      }
+
+      .van-swipe__indicator {
+        height: 5px;
+        opacity: 1;
+        background-color: rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+      }
+    }
+
+    .van-grid-item__content {
+      padding: 0;
+      background-color: transparent;
+
+      .van-grid-item__icon {
+        width: 40px;
+        height: 40px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+// 为你推荐
+.recommend,
+.myfootprint {
+  .van-grid-item__content {
+    padding: 0;
+  }
+}
+
+// 登录注册样式修改
+.login,
+.register {
+  .van-checkbox__label {
+    color: #b0b6d0;
+    margin-left: 15px;
+  }
+  .van-button {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+// 详情页
+.detail {
+  .nav-icon {
+    .van-icon {
+      font-size: xx-large;
+    }
+  }
+  .van-sticky {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    // opacity: 0;
+  }
+  .van-hairline--bottom::after,
+  .van-hairline--bottom::after,
+  [class*="van-hairline"]::after,
+  [class*="van-hairline"]::after {
+    border: 0 solid transparent !important;
+  }
+  .myoverlay {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  .my-swipe {
+    background-color: #e8e8ed;
+    .van-swipe__indicator {
+      background-color: #b9b9b9;
+    }
+    img {
+      width: 100%;
+      height: 375px;
+    }
+  }
+}
+
+// 搜索列表中的下拉菜单
+.searchList {
+  .van-dropdown-menu {
+    .van-dropdown-menu__title--active,
+    .van-dropdown-item__icon,
+    .van-dropdown-item__option--active {
+      color: #ff4142;
+    }
+  }
+}
+
+// 清空历史记录弹窗的样式设置
+.myDialog {
+  .van-dialog__confirm {
+    background-color: #f23030;
+  }
+}
+
+// 购物车页面下的加减按钮轻提示样式设置
+.myToast {
+  background-color: transparent;
+  .van-toast__loading {
+    color: #f2270c;
+  }
+}
+.cart {
+  .van-submit-bar {
+    .van-checkbox__label {
+      margin: 0;
+    }
+  }
+}
+
+// 分类模块样式设置
+.category {
+  .van-sidebar {
+    width: 85px;
+  }
+  .van-grid-item__content {
+    padding: 0;
+  }
+}
+
+// 我的组件
+.mine {
+  .myHeader-con {
+    .van-dialog {
+      .van-dialog__header {
+        padding: 0;
+        margin-bottom: 15px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 400;
+        color: #333;
+      }
+    }
+  }
+  .orderdesc {
+    .van-grid-item__content {
+      padding: 0;
+      .van-icon {
+        color: #dd9e58;
+        margin-top: 12px;
+      }
+      .van-grid-item__text {
+        margin: 0;
+        padding: 0;
+        color: #666;
+        font-size: 12px;
+        line-height: 40px;
+      }
+    }
+    .van-grid-item:last-of-type {
+      .van-grid-item__content {
+        .van-icon {
+          color: #e93b3d;
+        }
+      }
+    }
+  }
+  .coupons {
+    .van-grid-item__content {
+      padding: 17px 0 10px;
+    }
+  }
+  .tools {
+    .van-grid-item__content {
+      padding: 0;
+      .van-icon {
+        margin-top: 6px;
+      }
+      .van-grid-item__text {
+        margin: 0;
+        padding: 0;
+        color: #666;
+        font-size: 12px;
+        line-height: 30px;
+      }
+      .iconkefu {
+        color: #e43130;
+        font-size: 23px !important;
+      }
+    }
+  }
+}
+
+// 账户设置
+.account {
+  .account-bottom {
+    .van-grid {
+      .van-grid-item {
+        .van-grid-item__content {
+          background-color: transparent;
+          padding: 0;
+          flex-direction: row;
+          align-items: center;
+          .van-icon {
+            margin-right: 5px;
+          }
+          .van-grid-item__text {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+}
